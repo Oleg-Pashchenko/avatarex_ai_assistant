@@ -42,6 +42,8 @@ async def on_all_messages(message: types.Message):
                                     f'К сожалению мы не смогли точно разобрать город.\nПожалуйста,'
                                     f'напишите запрос подробнее и согласно критериям.')
     args = db_response['obj']
+    if len(args) > 2:
+        args = args[:3]
     response_text = f"{message.from_user.first_name}, по вашему запросу было найдено {len(args)} результатов."
     if len(args) == 0:
         return await message.answer(response_text)
