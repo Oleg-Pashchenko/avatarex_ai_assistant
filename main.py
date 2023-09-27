@@ -31,7 +31,7 @@ async def on_all_messages(message: types.Message):
         return await message.answer(f'{message.from_user.first_name}, ваш запрос не был обработан.\n'
                                     f'К сожалению мы не смогли точно разобрать критерии вашего поиска.\nПожалуйста,'
                                     f'напишите запрос подробнее и согласно критериям.')
-    await message.answer(f'[Debug data] Openai Response:\n{openai_response}')
+    #await message.answer(f'[Debug data] Openai Response:\n{openai_response}')
     location, bedrooms = openai_response['args']['location'], openai_response['args']['bedrooms']
     price = openai_response['args']['price']
     meters, obj_type = openai_response['args']['meters'], openai_response['args']['type']
